@@ -13,7 +13,7 @@ if [ "$ServerName" = "server1" ]; then
             TargetServer="Server1"
 fi
 
-scp -v -r $Path vagrant@$TargetServer:/$TargetPath
+scp -v -r $Path vagrant@$TargetServer:/$TargetPath &> /tmp/Scp_verbosedata.log
 
 #total number of bytes
 echo $(grep "Transferred: " /tmp/Scp_verbosedata.log | awk '{print $3}' | tr -d ',')
